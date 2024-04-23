@@ -1,0 +1,256 @@
+@charset "UTF-8";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_functions.scss";
+@use "../../_foundation/_mixins.scss" as *;
+@use "../../_foundation/_reset.scss";
+@use "../../_foundation/_utility.scss";
+@use "../../_foundation/_layout.scss";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_component/_atoms/_btn.scss";
+@use "../../_component/_atoms/_ham.scss";
+@use "../../_component/_organisms/_header.scss";
+@use "../../_component/_organisms/_footer.scss";
+@use "../../_component/_molecules/_sec.scss";
+/* ------------------------------
+- component
+------------------------------ */
+@use "../../_component/_atoms/_category.scss";
+@use "../../_component/_molecules/_articleList.scss";
+@use "../../_component/_molecules/_articleFlat.scss";
+/* ------------------------------
+- sec
+------------------------------ */
+@use "../../_component/_molecules/_sec__head.scss";
+/* ------------------------------
+- top
+------------------------------ */
+.content__btnarea {
+  text-align: center;
+  @include mq-up {
+    margin-top: 5rem;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+  }
+  .btn {
+    @include mq-up {
+      min-width: 40rem;
+      min-height: 6.5rem;
+    }
+  }
+}
+// column
+.column {
+  @include mq-up {
+    padding-top: 10rem;
+  }
+  @include mq-down {
+    padding-top: 5rem;
+  }
+}
+.columnMain {
+  @include mq-up(lg) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.columnFirst {
+  @include mq-up(lg) {
+    width: calc((550 / 1100) * 100%);
+  }
+}
+.columnFirst__link {
+  background: var.$colorWhite;
+  @include mq-up(lg) {
+    display: block;
+    height: clamp(40rem,calc((485 / 1400) * 100vw),48.5rem);
+  }
+  @include mq-between(sm-lg) {
+    display: flex;
+  }
+  @include mq-up {
+    &:hover {
+      opacity: .7;
+      .columnFirst__title {
+        text-decoration: underline;
+      }
+    }
+  }
+  @include mq-down {
+    display: block;
+  }
+}
+.columnFirst__img {
+  text-align: center;
+  @include mq-up(lg) {
+    height: 34.1rem;
+    height: clamp(20rem,calc((341 / 1400) * 100vw),34.1rem);
+  }
+  @include mq-between(sm-lg) {
+    width: 20%;
+  }
+}
+.columnFirst__info {
+  @include mq-up(lg) {
+    padding: 2.2rem 3rem 1rem 2.2rem;
+    height: calc(100% - 34.1rem);
+  }
+  @include mq-between(sm-lg) {
+    padding: 2.5rem 1.5rem;
+    width: 80%;
+  }
+  @include mq-down {
+    padding: 1.5rem 1rem;
+  }
+}
+.columnFirst__title {
+  width: 100%;
+  line-height: 1.6;
+  font-weight: bold;
+  @include mq-up(lg) {
+    font-size: clamp(1.4rem,calc((18 / 1400) * 100vw),1.8rem);
+  }
+  @include mq-between(sm-lg) {
+    font-size: 1.4rem;
+  }
+  @include mq-up {
+    margin-top: 1.2rem;
+  }
+  @include mq-down {
+    margin-top: 1rem;
+  }
+}
+.column__list {
+  @include mq-up(lg) {
+    width: calc((490 / 1100) * 100%);
+  }
+}
+.column__item {
+  @include mq-up(lg) {
+    height: clamp(12rem,calc((137 / 1400) * 100vw),13.7rem);
+  }
+  @include mq-down(lg) {
+    margin-top: 1.5rem;
+  }
+  &:not(:first-of-type) {
+    @include mq-up(lg) {
+      margin-top: 3.7rem;
+    }
+    @include mq-down(lg) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+.column__link {
+  display: flex;
+  height: 100%;
+  background: var.$colorWhite;
+  @include mq-up {
+    &:hover {
+      opacity: .7;
+      .column__title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.column__img {
+  @include mq-up(lg) {
+    width: calc((220 / 490) * 100%);
+  }
+  @include mq-between(sm-lg) {
+    width: 20%;
+  }
+  @include mq-down {
+    width: 35%;
+  }
+  img {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.column__info {
+  @include mq-up(lg) {
+    padding: 1.5rem 2rem 1rem 2rem;
+    width: calc((270 / 490) * 100%);
+  }
+  @include mq-down(lg) {
+    width: 65%;
+  }
+  @include mq-between(sm-lg) {
+    padding: 2.5rem 1.5rem;
+    width: 80%;
+  }
+  @include mq-down {
+    padding: 1.2rem 1rem;
+  }
+}
+.column__features {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.column__date {
+  margin-right: 1rem;
+  color: var.$colorGray;
+  font-size: 1.2rem;
+}
+.column__title {
+  width: 100%;
+  line-height: 1.6;
+  font-weight: bold;
+  @include mq-up(lg) {
+    font-size: clamp(1.2rem,calc((15 / 1400) * 100vw),1.5rem);
+  }
+  @include mq-between(sm-lg) {
+    font-size: 1.4rem;
+  }
+  @include mq-up {
+    margin-top: 1.2rem;
+  }
+  @include mq-down {
+    margin-top: 1rem;
+  }
+}
+
+// news
+.news {
+  text-transform: uppercase;
+  @include mq-up {
+    padding: 10rem 0;
+  }
+  @include mq-down {
+    padding: 5rem 0;
+  }
+}
+.news__head {
+  margin-bottom: 3rem;
+}
+.news__en {
+  font-family: var.$fontEn;
+  color: var.$colorGreen;
+  @include mq-up {
+    font-size: clamp(2rem,calc((28 / 1400) * 100vw),2.8rem);
+  }
+  @include mq-down {
+    text-align: center;
+    font-size: 2.6rem;
+  }
+}
+.news__title {
+  color: var.$colorGray;
+  font-size: 1.5rem;
+  @include mq-up {
+    margin-top: .8rem;
+  }
+  @include mq-down {
+    text-align: center;
+  }
+}

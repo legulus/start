@@ -1,0 +1,126 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+
+.columnItems {
+  @include mq-down {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+.columnItem {
+  @include mq-down {
+    width: 48.5%;
+    &:nth-of-type(n+3) {
+      margin-top: 3rem;
+    }
+  }
+  &+& {
+    position: relative;
+    @include mq-up {
+      margin-top: 6.6rem;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: var.$colorLineGray;
+        @include mq-up {
+          top: -3.3rem;
+        }
+        @include mq-down {
+          top: -1.5rem;
+        }
+      }
+    }
+  }
+}
+.columnItem__anc {
+  @include mq-up {
+    display: flex;
+    justify-content: space-between;
+    &:hover {
+      .columnItem__img {
+        transform: scale(1.05);
+      }
+      .columnItem__title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.columnItem__head {
+  overflow: hidden;
+  @include mq-up {
+    width: calc((240 / 780) * 100%);
+    height: clamp(12rem,calc((150 / 1400) * 100vw),15rem);
+  }
+  @include mq-down {
+    height: 12rem;
+  }
+}
+.columnItem__img {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  transition: all .3s;
+}
+.columnItem__body {
+  @include mq-up {
+    flex: 1;
+    margin-left: 2.5rem;
+  }
+  @include mq-down {
+    padding-top: 1rem;
+  }
+}
+.columnItem__info {
+  @include mq-up {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+.columnItem__date {
+  color: var.$colorGray;
+  font-size: 1.2rem;
+  @include mq-up {
+    margin-right: 1.5em;
+  }
+  @include mq-down {
+    margin-right: .8rem;
+  }
+}
+.columnItem__category {
+  @include mq-down {
+    margin-top: 0;
+    font-size: 1rem;
+    .nolink,
+    .link {
+      padding: .2em .4em .1em;
+    }
+  }
+}
+.columnItem__title {
+  margin-top: 1.2rem;
+  font-weight: bold;
+  @include mq-up {
+    font-size: 2rem;
+  }
+  @include mq-down {
+    font-size: 1.5rem;
+  }
+}
+.columnItem__text {
+  line-height: 1.8;
+  @include mq-up {
+    margin-top: 1.2rem;
+    font-size: 1.3rem;
+  }
+  @include mq-down {
+    margin-top: 1rem;
+  }
+}

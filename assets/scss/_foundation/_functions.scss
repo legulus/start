@@ -1,0 +1,7 @@
+// --- VW ---
+@function vw($px, $width: $spDesignWidth) {
+  @return ($px * 100 / $width) * 1vw;
+}
+@function vw-pc($px, $width: $pcDesignWidth) {
+  @return ($px * 100 / $width) * 1vw;
+}

@@ -1,0 +1,41 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.sec__head {
+  @include mixins.mq-up {
+    margin-bottom: 4rem;
+  }
+  @include mixins.mq-down {
+    margin-bottom: 3rem;
+  }
+}
+.sec__head__title {
+  text-align: center;
+  color: variable.$colorGreen;
+  @include mixins.mq-up {
+    font-size: 4rem;
+  }
+  @include mixins.mq-down {
+    font-size: 2.4rem;
+  }
+}
+.sec__head__en {
+  text-align: center;
+  text-transform: uppercase;
+  color: variable.$colorGray;
+  font-family: variable.$fontEn;
+}
+.sec__head__subtitle {
+  margin-top: .2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.sec__lead {
+  text-align: center;
+  @include mixins.mq-up {
+    margin-top: 2.2rem;
+    font-size: 1.5rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 1.5rem;
+  }
+}

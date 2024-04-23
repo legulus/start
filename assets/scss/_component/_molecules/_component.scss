@@ -1,0 +1,493 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+[class*='component-'] {
+  line-height: 1.8;
+  font-size: 1em;
+  @include mq-up {
+    margin: calc(60/16)*1em auto;
+    &.-md {
+      width: calc((540 / 760) * 100%);
+    }
+    &.-sm {
+      width: calc((365 / 760) * 100%);
+    }
+  }
+  @include mq-down {
+    margin: 2em auto;
+  }
+  * {
+    line-height: 1.8;
+  }
+}
+[class*='componentheading-'] {
+  @include mq-up {
+    margin: calc((25 / 16) * 1em) 0 1em;
+  }
+  @include mq-down {
+    margin: 2.5rem 0 1.5rem;
+  }
+  &+& {
+    margin: calc(60/16)*1em auto;
+  }
+  &+[class*='component-'] {
+    margin-top: 0;
+  }
+}
+.row {
+  @include mq-up {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.-rev {
+      flex-direction: row-reverse;
+    }
+  }
+}
+.col-lg {
+  @include mq-up {
+    width: calc((500 / 760) * 100%);
+  }
+}
+.col-sm {
+  @include mq-up {
+    width: calc((233 / 760) * 100%);
+  }
+}
+.col-md {
+  @include mq-up {
+    width: calc((365 / 760) * 100%);
+  }
+}
+.col-xl {
+  @include mq-up {
+    width: 70%;
+  }
+}
+.col-xs {
+  @include mq-up {
+    width: 25%;
+  }
+}
+.item {
+  @include mq-up {
+    &:nth-child(n+3) {
+      margin-top: 3rem;
+    }
+  }
+  @include mq-down {
+    &:nth-child(n+2) {
+      margin-top: 2rem;
+    }
+  }
+}
+.componentheading-lg {
+  .heading {
+    @include secTitle;
+  }
+}
+.componentheading-md {
+  .heading {
+    border-radius: .2em;
+    background: var.$colorWhite;
+    @include mq-up {
+      padding: 0.65em 1.2em;
+      font-size: calc(18/16)*1em;	
+    }
+    @include mq-down {
+      padding: 0.65em .8em;
+      font-size: 1.6rem;
+    }
+  }
+}
+.componentheading-sm {
+  .heading {
+    @include secSubTitle;
+  }
+}
+.caption {
+  font-size: calc(13/16)*1em;
+  margin-top: 0.5em;
+  text-align: left;
+}
+.component-img {
+  text-align: center;
+}
+.component-text,
+.component-imgtext,
+.component-comment {
+  a {
+    color: #0000EE;
+    text-decoration: underline;
+  }
+  a:hover {
+    @include mq-up {
+      opacity: .7;
+      color: var.$colorBlack;
+    }
+  }
+  strong {
+    background: linear-gradient(transparent 60%, var.$colorBgGray 40%);
+  }
+  ul,ol {
+    padding-left: 1em;
+  }
+  li {
+    list-style: inherit;
+  }
+}
+.component-text {
+  &.-frame,
+  &.-bg {
+    border: 1px solid var.$colorBgGray;
+    @include mq-up {
+      padding: 1.6em 1.75em;
+    }
+    @include mq-down {
+      padding: 2rem 1.5rem;
+    }
+  }
+  &.-bg {
+    background: #e9e9e9;
+  }
+}
+.component-btn {
+  text-align: center;
+  @include mq-up {
+    justify-content: center;
+  }
+  .btn__link {
+    @include mq-up {
+    }
+    @include mq-down {
+      &:nth-child(n+2) {
+        margin-top: 2rem;
+      }
+    }
+    .btn {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}
+.-row1 {
+  .btn__link {
+    @include mq-up {
+      margin: 0 auto;
+      width: calc((295 / 760) * 100%);
+      &:nth-child(n+2) {
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+.-row2 {
+  .btn__link {
+    @include mq-up {
+      width: calc((295 / 760) * 100%);
+      margin: 0 1.5%;
+      &:nth-child(n+3) {
+        margin-top: 3rem;
+      }
+    }
+    @include mq-down {
+      &:nth-child(n+3) {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.component-comment {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  &.-rev {
+    flex-direction: row-reverse;
+  }
+}
+.comment__imgwrap {
+  @include mq-up {
+    min-width: 11.5rem;
+    max-width: 11.5rem;
+  }
+  @include mq-down {
+    min-width: 6rem;
+    max-width: 6rem;
+  }
+}
+.comment__img {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid var.$colorBgGray;
+  @include mq-up {
+    height: 11.5rem;
+  }
+  @include mq-down {
+    height: 6rem;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+  }
+}
+.comment__name {
+  text-align: center;
+  margin-top: .5rem;
+  font-size: 1.2rem;
+}
+.comment__text {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  @include mq-up {
+    min-height: 140px;
+    margin: 0 30px;
+    padding: 1em calc((25 / 16) * 1em);
+  }
+  @include mq-down {
+    min-height: 60px;
+    padding: 1.5rem;
+  }
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    @include mq-up {
+      top: 50px;
+    }
+    @include mq-down {
+      top: 23px;
+    }
+  }
+}
+.-row {
+  .comment__text {
+    @include mq-down {
+      margin-left: 2rem;
+    }
+    &::before,
+    &::after {
+      @include mq-up {
+        border-width: 7.5px 15px 7.5px 0;
+      }
+      @include mq-down {
+        border-width: .75rem 1.5rem .75rem 0;
+      }
+    }
+    &::before {
+      @include mq-up {
+        left: -16px;
+      }
+      @include mq-down {
+        left: -1.5rem;
+      }
+    }
+    &::after {
+      @include mq-up {
+        left: -13px;
+      }
+      @include mq-down {
+        left: -1.3rem;
+      }
+    }
+  }
+  &.-color01 {
+    .comment__text {
+      background: var.$colorWhite;
+      @include mq-up {
+        border: 2px solid var.$colorBgGray;
+      }
+      @include mq-down {
+        border: 1px solid var.$colorBgGray;
+      }
+      &::before {
+        border-color: transparent var.$colorBgGray transparent transparent;
+      }
+      &::after {
+        border-color: transparent var.$colorWhite transparent transparent;
+      }
+    }
+  }
+  &.-color02 {
+    .comment__text {
+      @include mq-up {
+        border: 2px solid var.$colorGreen;
+      }
+      @include mq-down {
+        border: 1px solid var.$colorGreen;
+      }
+      &::before {
+        border-color: transparent var.$colorGreen transparent transparent;
+      }
+      &::after {
+        border-color: transparent var.$colorBgGreen transparent transparent;
+      }
+    }
+  }
+}
+.-rev {
+  .comment__text {
+    @include mq-down {
+      margin-right: 2rem;
+    }
+    &::before,
+    &::after {
+      @include mq-up {
+        border-width: 7.5px 0 7.5px 15px;
+      }
+      @include mq-down {
+        border-width: .75rem 0 .75rem 1.5rem;
+      }
+    }
+    &::before {
+      @include mq-up {
+        right: -16px;
+      }
+      @include mq-down {
+        right: -1.5rem;
+      }
+    }
+    &::after {
+      @include mq-up {
+        right: -12px;
+      }
+      @include mq-down {
+        right: -1.3rem;
+      }
+    }
+  }
+  &.-color01 {
+    .comment__text {
+      background: var.$colorWhite;
+      @include mq-up {
+        border: 2px solid var.$colorBgGray;
+      }
+      @include mq-down {
+        border: 1px solid var.$colorBgGray;
+      }
+      &::before {
+        border-color: transparent transparent transparent var.$colorBgGray;
+      }
+      &::after {
+        border-color: transparent transparent transparent var.$colorWhite;
+      }
+    }
+  }
+  &.-color02 {
+    .comment__text {
+      @include mq-up {
+        border: 2px solid var.$colorGreen;
+      }
+      @include mq-down {
+        border: 1px solid var.$colorGreen;
+      }
+      &::before {
+        border-color: transparent transparent transparent var.$colorGreen;
+      }
+      &::after {
+        border-color: transparent transparent transparent var.$colorBgGreen;
+      }
+    }
+  }
+}
+.gallery__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery__item {
+  @include mq-up {
+    position: relative;
+    width: 24%;
+    &:not(:nth-child(4n)) {
+      margin-right: 1.3%;
+    }
+    &:nth-child(n+5) {
+      margin-top: 1.3%;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,.2) url(../img/common/icon_search.svg) no-repeat center/ 50px;
+      opacity: 0;
+      transition: all .3s;
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+  @include mq-down {
+    position: relative;
+    width: 32.4%;
+    &:not(:nth-child(3n)) {
+      margin-right: 1.3%;
+    }
+    &:nth-child(n+4) {
+      margin-top: 1.3%;
+    }
+  }
+}
+.component-kanren {
+  background: var.$colorWhite;
+  border: 1px solid var.$colorLineGray;
+  @include mq-up {
+    padding: calc(30/16)*1em;
+  }
+  @include mq-down {
+    padding: 2rem;
+  }
+  .heading {
+    margin-bottom: calc(10/16)*1em;
+    font-size: calc(16/16)*1em;
+  }
+  .text {
+    margin-bottom: calc(30/16)*1em;
+    font-size: calc(14/16)*1em;
+  }
+  .btn__link {
+    @include mq-down {
+      width: 100%;
+    }
+  }
+  .btnarea{
+    margin-top: 1.5rem;
+    @include mq-up{
+      margin-left: auto;
+      max-width: 30rem;
+    }
+    @include mq-down{
+      text-align: center;
+    }
+    .btn{
+      width: 100%;
+    }
+  }
+}
+.movie__inner,
+.map__inner {
+  @include iframe;
+}
+.component-table {
+  @include table;
+  &.-col2 {
+    @include tableCol2;
+  }
+  &.-free {
+    @include tableFree;
+  }
+}

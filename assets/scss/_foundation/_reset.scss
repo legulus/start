@@ -1,0 +1,149 @@
+@use "_mixins.scss";
+@use "_variable.scss";
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+* {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+html {
+  margin-top: 0!important;
+  @include mixins.mq-up {
+    font-size: 10px;
+  }
+  @include mixins.mq-down {
+    font-size: clamp(1px, calc(10 / 375) * 100vw, 12px);
+  }
+}
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: variable.$colorWhite;
+  font-family: variable.$baseFont;
+  color: variable.$colorBlack;
+  letter-spacing: 0.05em;
+  @include mixins.mq-up {
+    font-size: 1.6rem;
+  }
+  @include mixins.mq-down {
+    font-size: 1.4rem;
+  }
+}
+main {
+  display: block;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  @include mixins.mq-up {
+    transition: all 0.3s;
+    &::before,
+    &::after {
+      transition: all 0.3s;
+    }
+  }
+}
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+}
+svg {
+  width: 100%;
+  height: auto;
+}
+sup {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+input,
+button,
+textarea,
+select {
+  appearance: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+address {
+  font-style: normal;
+}

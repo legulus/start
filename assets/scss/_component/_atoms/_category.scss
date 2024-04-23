@@ -1,0 +1,30 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -.5em;
+  margin-left: -.5em;
+  font-size: 1rem;
+}
+.category__item {
+  margin-top: .5em;
+  margin-left: .5em;
+  .nolink {
+    display: block;
+    border-radius: .3em;
+    border: 1px solid var.$colorGreen;
+    padding: .2em .6em;
+    color: var.$colorGreen;
+    background: var.$colorWhite;
+  }
+  .link {
+    @extend .nolink;
+    @include mq-up {
+      &:hover {
+        color: var.$colorWhite;
+        background: var.$colorGreen;
+      }
+    }
+  }
+}

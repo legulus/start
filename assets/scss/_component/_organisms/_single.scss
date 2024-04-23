@@ -1,0 +1,195 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.single {
+  @include mixins.mq-up {
+    padding: 6rem 0 19.5rem;
+  }
+  @include mixins.mq-down {
+    padding: 7rem 0 12rem;
+  }
+}
+.single__body {
+  @include mixins.mq-up {
+    margin-top: 4rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 3rem;
+  }
+}
+.single__title {
+  @include mixins.mq-up {
+    margin-bottom: 4rem;
+    font-size: 3.2rem;
+  }
+  @include mixins.mq-down {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+}
+.slngle__info{
+  margin-bottom: 2rem;
+  @include mixins.mq-up{
+    display: flex;
+    align-items: center;
+  }
+}
+.single__day {
+  color: variable.$colorGray;
+  @include mixins.mq-up{
+    margin-right: 1.5rem;
+    font-size: calc(12/16)*1em;
+  }
+  @include mixins.mq-down{
+    margin-bottom: 1rem;
+  }
+}
+.single__category {
+  @include mixins.mq-up {
+    margin-top: -.3em;
+  }
+  @include mixins.mq-down {
+    margin-top: .5rem;
+  }
+}
+.single__img {
+  text-align: center;
+  @include mixins.mq-up {
+    margin-top: 4rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 2rem;
+    margin-left: -1.5rem;
+    width: 100vw;
+  }
+}
+.single__lead {
+  line-height: 1.8;
+  @include mixins.mq-up {
+    margin-top: 2.5rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 1.5rem;
+  }
+}
+.single__btnarea {
+  text-align: center;
+  @include mixins.mq-up {
+    margin-top: 4rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 3rem;
+  }
+  .btn {
+    @include mixins.mq-up {
+      width: calc((385 / 780) * 100%);
+    }
+  }
+}
+
+.single__over {
+  @include mixins.mq-up {
+    padding-top: 8rem;
+  }
+  @include mixins.mq-down {
+    padding-top: 5rem;
+  }
+}
+.single__form__title {
+  text-align: center;
+  color: variable.$colorWhite;
+  background: variable.$colorGreen;
+  @include mixins.mq-up {
+    margin-bottom: 5rem;
+    padding: 1.3rem 1.5rem;
+    font-size: clamp(1.8rem,calc((24 / 1400) * 100vw),2.4rem);
+  }
+  @include mixins.mq-down {
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+  }
+}
+.single__cv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid variable.$colorGreen;
+  background: variable.$colorWhite;
+  @include mixins.mq-up {
+    padding: 2rem 1.5rem 3.5rem;
+  }
+  @include mixins.mq-down {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
+.single__cv__title {
+  text-align: center;
+  color: variable.$colorGreen;
+  @include mixins.mq-up {
+    font-size: 2rem;
+  }
+  @include mixins.mq-down {
+    font-size: 1.8rem;
+  }
+}
+.single__cv__box {
+  margin-top: 1.5rem;
+  @include mixins.mq-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.single__cv__tel {
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  font-weight: bold;
+  @include mixins.mq-up {
+    margin-right: 2rem;
+    font-size: clamp(1.8rem,calc((32 / 1400) * 100vw),3.2rem);
+  }
+  @include mixins.mq-down {
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+  }
+  &::before {
+    content: "";
+    display: block;
+    margin-right: .5rem;
+    margin-bottom: .4rem;
+    width: 3.5rem;
+    height: 2rem;
+    background: url(../img/common/form/icon_tel.svg) no-repeat center / contain;
+  }
+}
+.single__cv__time {
+  line-height: 1.8;
+  @include mixins.mq-up {
+    font-size: 1.2rem;
+  }
+  @include mixins.mq-down {
+    text-align: center;
+  }
+}
+.single__cv__note {
+  text-align: center;
+  @include mixins.mq-up {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+  }
+  @include mixins.mq-down {
+    margin-top: 1rem;
+  }
+}
+
+.single__recom__title {
+  @include mixins.secTitle;
+  @include mixins.mq-up {
+    margin-bottom: 3rem;
+  }
+  @include mixins.mq-down {
+    margin-bottom: 2rem;
+  }
+}

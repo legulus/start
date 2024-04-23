@@ -1,0 +1,63 @@
+@charset "UTF-8";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_functions.scss";
+@use "../../_foundation/_mixins.scss" as *;
+@use "../../_foundation/_reset.scss";
+@use "../../_foundation/_utility.scss";
+@use "../../_foundation/_layout.scss";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_component/_atoms/_btn.scss";
+@use "../../_component/_atoms/_ham.scss";
+@use "../../_component/_organisms/_header.scss";
+@use "../../_component/_organisms/_footer.scss";
+@use "../../_component/_molecules/_sec.scss";
+/* ------------------------------
+- hero
+------------------------------ */
+@use "../../_component/_molecules/_hero.scss";
+/* ------------------------------
+- breadcrumb
+------------------------------ */
+@use "../../_component/_molecules/_breadcrumb.scss";
+/* ------------------------------
+- 404
+------------------------------ */
+.notfound {
+  @include mq-up {
+    padding: 6rem 0 9.5rem;
+  }
+  @include mq-down {
+    padding: 3rem 0 5rem;
+  }
+}
+.notfound__lead {
+  line-height: 1.8;
+  text-align: center;
+  font-weight: bold;
+  @include mq-up {
+    font-size: 2rem;
+  }
+  @include mq-down {
+    font-size: 1.6rem;
+  }
+}
+.notfound__btnarea {
+  text-align: center;
+  @include mq-up {
+    margin-top: 5rem;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+  }
+  .btn {
+    @include mq-up {
+      width: 40rem;
+      height: 6.5rem;
+    }
+  }
+}

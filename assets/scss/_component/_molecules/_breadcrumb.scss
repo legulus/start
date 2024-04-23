@@ -1,0 +1,42 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.breadcrumb {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  padding: 1em 0;
+}
+.breadcrumb::-webkit-scrollbar {
+  display:none;
+}
+.breadcrumb__list {
+  display: flex;
+  @include mixins.mq-up {
+    font-size: 1.2rem;
+  }
+  @include mixins.mq-down {
+    font-size: 1rem;
+  }
+}
+.breadcrumb__item {
+  color: variable.$colorBgGray;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  line-height: 1;
+  +.breadcrumb__item {
+    &:before {
+      content: '\e902';
+      margin: 0 .5rem;
+      color: variable.$colorBgGray;
+      font-family: variable.$fontIcon;
+    }
+  }
+}
+.breadcrumb__anc {
+  color: variable.$colorBlack;
+  line-height: 1;
+  @include mixins.mq-up {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+
+.articleFlat__item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid variable.$colorLineGray;
+  &:first-child {
+    padding-top: 0;
+  }
+}
+.articleFlat__anc {
+  .-flat & {
+    @include mixins.mq-up {
+      display: flex;
+    }
+  }
+  &:hover {
+    @include mixins.mq-up {
+      .articleFlat__title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.articleFlat__head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  .-flat & {
+    @include mixins.mq-up {
+      margin-bottom: 0;
+    }
+  }
+}
+.articleFlat__date {
+  margin-right: 1em;
+  color: variable.$colorGray;
+  font-size: 1.2rem;
+}
+.articleFlat__category {
+  white-space: nowrap;
+}
+.articleFlat__title {
+  margin-top: 1rem;
+  @include mixins.mq-up {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.5rem;
+  }
+  @include mixins.mq-down {
+    font-size: 1.4rem;
+  }
+  .-flat & {
+    @include mixins.mq-up {
+      margin: 0 0 0 1em;
+    }
+  }
+}

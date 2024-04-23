@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_functions.scss";
+@use "../../_foundation/_mixins.scss" as *;
+@use "../../_foundation/_reset.scss";
+@use "../../_foundation/_utility.scss";
+@use "../../_foundation/_layout.scss";
+/* ------------------------------
+- base
+------------------------------ */
+@use "../../_component/_atoms/_btn.scss";
+@use "../../_component/_atoms/_ham.scss";
+@use "../../_component/_organisms/_header.scss";
+@use "../../_component/_organisms/_footer.scss";
+@use "../../_component/_molecules/_sec.scss";
+/* ------------------------------
+- hero
+------------------------------ */
+@use "../../_component/_molecules/_hero.scss";
+/* ------------------------------
+- breadcrumb
+------------------------------ */
+@use "../../_component/_molecules/_breadcrumb.scss";
+
+/* ------------------------------
+- single
+------------------------------ */
+@use "../../_component/_organisms/_single.scss";
+@use "../../_component/_molecules/_component.scss";
+@use "../../_component/_molecules/_component-toc.scss";
+@use "../../_component/_atoms/_category.scss";
+@use "../../_component/_molecules/_singlePager.scss";
+/* ------------------------------
+- side
+------------------------------ */
+@use "../../_component/_organisms/_side.scss";
+/* ------------------------------
+- news
+------------------------------ */
+.l-column {
+  @include mq-up {
+    padding-top: 7.5rem;
+  }
+}

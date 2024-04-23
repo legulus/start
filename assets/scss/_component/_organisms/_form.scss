@@ -1,0 +1,621 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+/*-------------------------------
+	Reset
+-------------------------------*/
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+// IE用
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+/*-------------------------------
+	Layout
+-------------------------------*/
+.form__box {
+  @include mq-up {
+    margin-top: 5rem;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+  }
+}
+.form__item {
+  font-size: 1.4rem;
+  @include mq-up{
+    display: flex;
+  }
+  &:not(:first-of-type) {
+    border-top: 1px solid var.$colorLineGray;
+    @include mq-up {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+    @include mq-down {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+  &:last-of-type {
+    border-bottom: 1px solid var.$colorLineGray;
+    @include mq-up {
+      padding-bottom: 1rem;
+    }
+    @include mq-down {
+      padding-bottom: 1.5rem;
+    }
+  }
+  &.-top {
+    @include mq-up {
+      align-items: flex-start;
+    }
+  }
+  &:not(.-top) {
+    @include mq-up {
+      align-items: center;
+    }
+  }
+}
+.form__name{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  @include mq-up{
+    justify-content: space-between;
+    width: 26.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.4rem;
+  }
+  @include mq-down {
+    font-size: 1.5rem;
+  }
+  .form__item.-top & {
+    @include mq-up {
+      padding-top: 1rem;
+    }
+  }
+  &::after {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-left: 1.5em;
+    padding: .6em;
+    line-height: 1;
+    font-size: 1.1rem;
+  }
+  .form__item.-required &::after {
+    content: "必須";
+    background: var.$colorYellow;
+  }
+  .form__item:not(.-required) &::after {
+    content: "任意";
+    color: var.$colorWhite;
+    background: var.$colorGray;
+  }
+}
+.form__content{
+  font-size: 1.4rem;
+  @include mq-up{
+    flex-grow: 1;
+    width: calc(100% - 26.5rem);
+  }
+  @include mq-down{
+    margin-top: 1rem;
+  }
+}
+.form__kome {
+  margin-top: .5rem;
+  color: var.$colorGray;
+  font-size: 1.2rem;
+}
+
+/* ------------------------------
+- inputText/Textarea/Select
+------------------------------ */
+.form__inputText,.form__textarea,.form__select{
+  width: 100%;
+  border: 1px solid #DEDEDE;
+  padding: .5em .75em;
+  max-width: 100%;
+  background: var.$colorWhite;
+  cursor: pointer;
+  &:focus {
+    border: 2px solid var.$colorBlack;
+  }
+
+  //Size
+  &.sm{
+    @include mq-up{
+      width: 24rem;
+    }
+    @include mq-down{
+      width: 100%;
+    }
+  }
+  &.md{
+    @include mq-up{
+      width: 70%;
+    }
+    @include mq-down{
+      width: 100%;
+    }
+  }
+}
+.form__inputText,.form__select{
+  @include mq-up{
+    height: 4rem;
+    font-size: 1.2rem;
+  }
+  @include mq-down{
+    height: 4.5rem;
+  }
+}
+.form__select{
+  color: var.$colorGray;
+  background-image: url(../img/common/icon_select.svg);
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 1.2rem;
+}
+.form__textarea{
+  @include mq-up{
+    height: 19rem;
+  }
+  @include mq-down{
+    height: 10rem;
+  }
+}
+.form__file {
+  display: none;
+}
+.form__fileBox {
+  @include mq-up {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.form__file__item {
+  @include mq-up(md) {
+    display: flex;
+    align-items: center;
+  }
+  @include mq-down(md) {
+    display: block;
+  }
+  &+& {
+    margin-top: 1rem;
+  }
+}
+.from__fileTxt {
+  display: flex;
+  align-items: center;
+  padding: .5em 2.5em .5em 1.15em;
+  border: 1px solid #DEDEDE;
+  background-color: var.$colorWhite;
+  background-image: url(../img/common/icon_select.svg);
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  @include mq-up {
+    margin-right: 2rem;
+    height: 4rem;
+    font-size: 1.2rem;
+  }
+  @include mq-down {
+    height: 4.5rem;
+  }
+}
+.form__fileName,
+.form__txtSup {
+  line-height: 1.6;
+  @include mq-up {
+    font-size: 1.4rem;
+  }
+  @include mq-down {
+    font-size: 1.2rem;
+  }
+}
+.form__fileName {
+  display: block;
+  @include mq-down {
+    margin-top: .5rem;
+  }
+}
+.form__txtSup {
+  @include mq-up {
+    margin-top: 2rem;
+  }
+  @include mq-down {
+    margin-top: 1.5rem;
+  }
+}
+
+/*-------------------------------
+	Check/Radio
+-------------------------------*/
+.form__check,.form__radio {
+  cursor: pointer;
+  & + label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    cursor: pointer;
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+    }
+    &::before {
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1px solid var.$colorBgGray;
+      margin-right: .7em;
+      background: var.$colorWhite;
+      @include mq-up {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+      @include mq-down {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    &::after{
+      opacity: 0;
+      position: absolute;
+      z-index: inherit;
+      top: 50%;
+      left: 1px;
+      transform: translateY(-50%);
+      transition: all .3s;
+    }
+  }
+  &:checked + label {
+    color: var.$colorGreen !important;
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+//Check
+.form__check{
+  & + label {
+    &::after {
+      left: 0;
+      border-top: solid 2px var.$colorGreen;
+      border-right: solid 2px var.$colorGreen;
+      @include mq-up {
+        width: 1rem;
+        height: .4rem;
+        transform: translate(.7rem, -.4rem) rotate(135deg);
+      }
+      @include mq-down {
+        width: .8rem;
+        height: .3rem;
+        transform: translate(.7rem, -.4rem) rotate(135deg);
+      }
+    }
+  }
+}
+//Radio
+.form__radio{
+  & + label {
+    &::after{
+      background: var.$colorGreen;
+      border-radius: 50%;
+      border: solid 1px var.$colorGreen;
+      @include mq-up {
+        left: 0.4em;
+        width: 0.8em;
+        height: 0.8em;
+      }
+      @include mq-down {
+        left: 0.4em;
+        width: 0.6em;
+        height: 0.6em;
+      }
+    }
+  }
+}
+
+/*-------------------------------
+	privacyarea
+-------------------------------*/
+.privacyarea{
+  @include mq-up {
+    margin-top: 4.5rem;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+  }
+}
+.privacy__text {
+  text-align: center;
+  line-height: 1.6;
+  @include mq-up {
+    font-size: 1.5rem;
+  }
+  @include mq-down {
+    font-size: 1.4rem;
+  }
+}
+.privacy__text__link {
+  color: var.$colorGreen;
+  text-decoration: underline;
+  @include mq-up {
+    font-size: 1.5rem;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  @include mq-down {
+	
+  }
+}
+.privacy__btn {
+  display: flex;
+  justify-content: center;
+  @include mq-up {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  @include mq-down {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+  }
+  label {
+    justify-content: center;
+    &::before {
+      border-radius: .4em;
+      width: 2.6rem;
+      height: 2.6rem;
+    }
+    &::after {
+      @include mq-down {
+        transform: translate(.9rem, -.3rem) rotate(135deg);
+      }
+    }
+  }
+}
+/*-------------------------------
+	form__btn
+-------------------------------*/
+.form__btnarea{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mq-up{
+    margin-top: 4.8rem;
+  }
+  @include mq-down{
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+  &.-rev {
+    @include mq-up {
+      flex-direction: row-reverse;
+    }
+    .form__btn {
+      &.-back {
+        @include mq-up {
+          margin-right: 3%;
+        }
+        @include mq-down {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+  }
+}
+.form__btn {
+  @include mq-up {
+    width: 48.5%;
+    height: 6.4rem;
+    font-size: clamp(1.2rem,calc(18/1400)*100vw,1.8rem);
+  }
+  &.-back {
+    color: var.$colorBlack;
+    background: var.$colorBgGray;
+    @include mq-up {
+      &:hover {
+        opacity: .7;
+      }
+    }
+    &::after {
+      content: none;
+    }
+  }
+}
+.js-formBtn{
+  &.is-disabled{
+    border-color: var.$colorGray;
+    color: var.$colorGray;
+    background: var.$colorBgGray;
+    pointer-events: none;
+    transition: all .3s;
+    &::after,.btn__icon{
+      display: none;
+    }
+  }
+}
+/* ------------------------------
+- placeholder
+------------------------------ */
+::placeholder{
+  color: var.$colorGray;
+}
+
+/* ------------------------------
+- form__list
+------------------------------ */
+.form__list {
+  display: flex;
+  flex-wrap: wrap;
+  &:not(.-half) {
+    gap: 1rem 2rem;
+  }
+  &.-half {
+    gap: 1rem;
+  }
+}
+.form__list__item {
+  @include mq-up {
+  }
+  .-half & {
+    width: calc(50% - .5rem);
+  }
+}
+.form__block {
+  margin-top: 1.5rem;
+}
+
+/* ------------------------------
+- confirm
+------------------------------ */
+.form__confirm__text {
+  color: var.$colorWhite;
+  @include mq-up {
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+  }
+  @include mq-down {
+    font-size: 1.4rem;
+  }
+}
+
+// form__step
+.form__step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq-up {
+    margin-top: 5rem;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+  }
+}
+.form__step__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid var.$colorWhite;
+  padding: 1rem;
+  width: 8.4rem;
+  min-width: 8.4rem;
+  height: 8.4rem;
+  background: var.$colorBgGreen;
+  color: rgba(#3E2912,.3);
+  font-weight: bold;
+  @include mq-up {
+    font-size: 1.5rem;
+  }
+  &:not(:last-of-type) {
+    @include mq-up {
+      margin-right: 7rem;
+    }
+    @include mq-down {
+      margin-right: 3rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 1px;
+      background: var.$colorGreen;
+      @include mq-up {
+        left: calc(100% + 2rem);
+        width: 4rem;
+      }
+      @include mq-down {
+        left: calc(100% + 1rem);
+        width: 1.5rem;
+      }
+    }
+  }
+  &.-active {
+    border-color: var.$colorGreen;
+    color: var.$colorWhite;
+    background: var.$colorGreen;
+  }
+}
+
+// form__split
+.form__split {
+  @include mq-up {
+    margin-top: .4rem;
+  }
+}
+.form__split__item {
+  &:not(:first-of-type) {
+    @include mq-up {
+      margin-top: 1rem;
+    }
+    @include mq-down {
+      margin-top: 1.5rem;
+    }
+  }
+  .form__split:not(.-splitLg) & {
+    display: flex;
+    align-items: center;
+  }
+  .-splitLg & {
+    @include mq-up {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.form__split__name {
+  margin-right: 1.5rem;
+  font-weight: bold;
+  @include mq-up {
+    font-size: 1.3rem;
+  }
+  .form__split:not(.-splitLg) & {
+    width: 8rem;
+  }
+  .-splitLg & {
+    @include mq-up {
+      width: 14rem;
+    }
+  }
+}
+.form__split__content {
+  &.-sm {
+    @include mq-up {
+      max-width: 18rem;
+    }
+  }
+  .form__split:not(.-splitLg) & {
+    width: calc(100% - 9.5rem);
+  }
+  .-splitLg & {
+    @include mq-up {
+      width: calc(100% - 15.5rem);
+    }
+    @include mq-down {
+      margin-top: 1rem;
+    }
+  }
+}

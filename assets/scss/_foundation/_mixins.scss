@@ -1,0 +1,411 @@
+@use "_variable.scss" as var;
+// --- Media Query ---
+@mixin mq-up($breakpoint: sm) {
+  @media #{map-get(var.$breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-down($breakpoint: sm) {
+  @media #{map-get(var.$breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+@mixin mq-between($breakpoint: sm-md) {
+  @media #{map-get(var.$breakpoint-between, $breakpoint)} {
+    @content;
+  }
+}
+
+// secTitle
+@mixin secTitle($type: 'md', $color: var.$colorBlack) {
+  position: relative;
+  border-bottom: 2px solid var.$colorBgGray;
+  padding-bottom: .4em;
+  @if ($color == 'blue') {
+    color: var.$colorGreen;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    display: block;
+    @if ($type == 'sm') {
+      width: calc((30 / 24) * 1em);
+    } @else {
+      width: calc((32 / 26) * 1em);
+    }
+    height: 2px;
+    background: var.$colorGreen;
+  }
+  @include mq-up {
+    @if ($type == 'sm') {
+      font-size: calc(24/16)*1em;
+    } @else if($type == 'lg') {
+      font-size: calc(28/16)*1em;
+    } @else {
+      font-size: calc(26/16)*1em;
+    }
+  }
+  @include mq-down {
+    font-size: 1.8rem;
+  }
+}
+@mixin secSubTitle() {
+  position: relative;
+  padding-left: 1.2em;
+  @include mq-up {
+    font-size: calc(18/16)*1em;
+  }
+  @include mq-down {
+    font-size: 1.6rem;
+  }
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 3px;
+    background: var.$colorGreen;
+    @include mq-up {
+      height: calc(100% - .8rem);
+    }
+    @include mq-down {
+      height: calc(100% - .4rem);
+    }
+  }
+}
+
+// table
+@mixin table() {
+  tbody {
+    -webkit-text-size-adjust: 100%;
+  }
+  @include mq-down {
+    overflow: auto;
+    .-lg {
+      width: 250vw;
+    }
+    .-md {
+      width: 150vw;
+    }
+  }
+  th,
+  td {
+    vertical-align: middle;
+    @include mq-up {
+      font-size: calc(13/16)*1em;
+    }
+    @include mq-down {
+      font-size: 1.3rem;
+    }
+  }
+  th {
+    font-weight: bold;
+  }
+}
+@mixin tableCol2() {
+  tbody {
+    -webkit-text-size-adjust: 100%;
+  }
+  tr {
+    &:not(:first-of-type) {
+      th {
+        border-top: 1px solid var.$colorLineGray;
+      }
+    }
+    &:last-of-type {
+      td {
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 1rem;
+          display: block;
+          width: calc(100% - 1rem);
+          height: 1px;
+          background: #7C87A8;
+        }
+      }
+    }
+  }
+  th {
+    padding: 1em 1em;
+    text-align: center;
+    color: var.$colorWhite;
+    background: #7C87A8;
+    @include mq-up {
+      width: calc((130 / 760) * 100%);
+    }
+    @include mq-down {
+      width: 30%;
+    }
+  }
+  td {
+    position: relative;
+    @include mq-up {
+      padding: 1em 1em 1em 2rem;
+    }
+    @include mq-down {
+      padding: 1em 1em;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: .8em;
+      display: block;
+      width: calc(100% - .8em);
+      height: 1px;
+      background: #7C87A8;
+    }
+  }
+}
+@mixin tableFree() {
+  background: var.$colorWhite;
+  tbody {
+    -webkit-text-size-adjust: 100%;
+  }
+  th,
+  td {
+    border: 1px solid var.$colorLineGray;
+    padding: 1em 1em;
+  }
+  th {
+    color: var.$colorWhite;
+    background: #7C87A8;
+  }
+}
+
+// iframe
+@mixin iframe() {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  iframe,
+  video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+// feature
+@mixin feature() {
+  line-height: 1.2;
+  @include mq-up {
+    margin: .2em 0;
+    padding: 0 .6em;
+    font-size: 1.3rem;
+  }
+  @include mq-down {
+    margin: .2em 0;
+    padding: 0 .8em;
+    font-size: 1.2rem;
+  }
+  &:not(:last-of-type) {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: block;
+      width: 1px;
+      background: var.$colorBlack;
+      @include mq-up {
+        height: 90%;
+      }
+      @include mq-down {
+        height: 60%;
+      }
+    }
+  }
+}
+
+// arrowLink
+@mixin arrowLink($color: var.$colorBlack) {
+  @include mq-up {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    @if ($color == 'white') {
+      color: var.$colorWhite;
+      &::after {
+        color: var.$colorWhite;
+      }
+      &:hover {
+        opacity: .7;
+      }
+    } @else {
+      &::after {
+        color: var.$colorGray;
+      }
+      &:hover {
+        color: var.$colorGreen;
+        &::after {
+          color: var.$colorGreen;
+        }
+      }
+    }
+    &::after {
+      content: "\e902";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+      font-family: var.$fontIcon;
+      font-weight: normal;
+    }
+  }
+  @include mq-down {
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .6rem;
+    border: 1px solid var.$colorGreen;
+    margin: 0 auto;
+    padding: .8em 3em;
+    width: 27.5rem;
+    min-width: 27.5rem;
+    height: 5.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var.$colorWhite;
+    font-family: var.$fontEn;
+    font-weight: bold;
+    background: var.$colorGreen;
+    transition: all .3s;
+    &::after {
+      content: "\e902";
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var.$colorBgGray;
+      font-size: 1.1em;
+      font-family: var.$fontIcon;
+      font-weight: normal;
+    }
+  }
+}
+
+// data
+@mixin definitionL() {
+  display: flex;
+  align-items: flex-start;
+  &+& {
+    border-top: 1px solid var.$colorLineGray;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
+@mixin definitionT() {
+  border-color: var.$colorGreen;
+  border-style: solid;
+  border-width: 0 1px;
+  text-align: center;
+  color: var.$colorGreen;
+  font-weight: bold;
+  @include mq-up {
+    padding: 0 1rem;
+    width: 9.5rem;
+    font-size: 1.3rem;
+  }
+  @include mq-down {
+    padding: 0 .5rem;
+    width: 8rem;
+  }
+}
+@mixin definitionD() {
+  @include mq-up {
+    padding: 0 .5rem 0 1.3rem;
+    width: calc(100% - 9.5rem);
+    font-size: 1.3rem;
+  }
+  @include mq-down {
+    padding-left: 1.5rem;
+    width: calc(100% - 8rem);
+  }
+}
+
+// singleOther
+@mixin singleOtherBlock() {
+  &:not(:first-of-type) {
+    @include mq-up {
+      margin-top: 6.5rem;
+    }
+    @include mq-down {
+      margin-top: 5rem;
+    }
+  }
+}
+@mixin singleOtherHead() {
+  display: flex;
+  align-items: center;
+  @include mq-up {
+    margin-bottom: 3.5rem;
+  }
+  @include mq-down {
+    margin-bottom: 2rem;
+  }
+  &::after {
+    content: "";
+    display: block;
+    margin-left: 1.5rem;
+    width: 100%;
+    height: 1px;
+    background: var.$colorGreen;
+  }
+}
+@mixin singleOtherEn() {
+  color: var.$colorGreen;
+  font-family: var.$fontEn;
+  @include mq-up {
+    white-space: nowrap;
+    font-size: clamp(2.4rem,calc((32 / 1400) * 100vw),3.2rem);
+  }
+  @include mq-down {
+    font-size: 2.4rem;
+  }
+}
+@mixin singleOtherTitle() {
+  margin-left: 1rem;
+  white-space: nowrap;
+  color: var.$colorGreen;
+  @include mq-up {
+    font-size: 1.6rem;
+  }
+  @include mq-down {
+    font-size: 1.3rem;
+  }
+}
+@mixin singleOtherCatch() {
+  @include mq-up {
+    font-size: clamp(2.4rem,calc((32 / 1400) * 100vw),3.2rem);
+  }
+  @include mq-down {
+    font-size: 2rem;
+  }
+}
+@mixin singleOtherLead() {
+  margin-top: 1.5rem;
+}
+
+// caption
+@mixin caption() {
+  font-size: calc(13/16)*1em;
+  margin-top: 0.6em;
+  text-align: left;
+  color: var.$colorGray;
+}

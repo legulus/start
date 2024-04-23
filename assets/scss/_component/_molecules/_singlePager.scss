@@ -1,0 +1,126 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.singlePager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid variable.$colorLineGray;
+  @include mixins.mq-up {
+    margin-top: variable.$space-md;
+    padding-top: variable.$space-sm;
+  }
+  @include mixins.mq-down {
+    flex-wrap: wrap;
+    margin-top: variable.$space-md-sm;
+  }
+}
+.singlePager__item {
+  text-align: center;
+  @include mixins.mq-up {
+    font-size: 1.6rem;
+  }
+  @include mixins.mq-down {
+    border-bottom: 1px solid variable.$colorLineGray;
+    padding: 1em;
+    height: 5rem;
+  }
+  &.-center {
+    @include mixins.mq-up {
+      width: 45%;
+      border-left: 1px solid variable.$colorLineGray;
+      border-right: 1px solid variable.$colorLineGray;
+    }
+    @include mixins.mq-down {
+      width: 100%;
+      order: 3;
+    }
+  }
+  &.-left {
+    @include mixins.mq-up {
+      width: 27%;
+    }
+    @include mixins.mq-down {
+      width: 50%;
+      order: 1;
+    }
+  }
+  &.-right {
+    @include mixins.mq-up {
+      width: 27%;
+    }
+    @include mixins.mq-down {
+      width: 50%;
+      order: 2;
+    }
+  }
+}
+.singlePager__anc {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  .-center & {
+    &::before {
+      font-family: variable.$fontIcon;
+      content: '\e90b';
+      color: variable.$colorBgGray;
+      margin-right: .5em;
+    }
+    @include mixins.mq-up {
+      &:hover {
+        &::before {
+          color: variable.$colorGreen!important;
+        }
+      }
+    }
+  }
+  .-left & {
+    &::before {
+      content: '\e901';
+      font-family: variable.$fontIcon;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #BBBBBB;
+      border-radius: 50%;
+      color: variable.$colorWhite;
+      margin-right: 1.5em;
+      padding: .2em;
+      font-size: .7em;
+      background: #BBBBBB;
+    }
+    @include mixins.mq-up {
+      &:hover {
+        &::before {
+          background: variable.$colorGreen!important;
+        }
+      }
+    }
+  }
+  .-right & {
+    &::after {
+      content: '\e902';
+      font-family: variable.$fontIcon;
+      width: 1.4rem;
+      height: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #BBBBBB;
+      border-radius: 50%;
+      color: variable.$colorWhite;
+      margin-left: 1.5em;
+      padding: .2em;
+      font-size: .7em;
+      background: #BBBBBB;
+    }
+  }
+  @include mixins.mq-up {
+    &:hover {
+      &::after {
+        background: variable.$colorGreen!important;
+      }
+    }
+  }
+}

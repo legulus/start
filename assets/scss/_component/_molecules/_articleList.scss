@@ -1,0 +1,119 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.articleList {
+  display: flex;
+  flex-wrap: wrap;
+  @include mixins.mq-down {
+    justify-content: space-between;
+  }
+}
+.articleList__item {
+  .-col4 & {
+    @include mixins.mq-up {
+      $itemwidth: 260;
+      $contentwidth: 1126;
+      width: calc($itemwidth/$contentwidth)*100%;
+      &:not(:nth-child(4n)) {
+        margin-right: calc((($contentwidth - ($itemwidth*4))/3)/$contentwidth)*100%;
+      }
+      &:nth-child(n+5) {
+        margin-top: 2rem;
+      }
+    }
+  }
+  .-col3 & {
+    @include mixins.mq-up {
+      $itemwidth: 245;
+      $contentwidth: 780;
+      width: calc($itemwidth/$contentwidth)*100%;
+      &:not(:nth-child(3n)) {
+        margin-right: calc((($contentwidth - ($itemwidth*3))/2)/$contentwidth)*100%;
+      }
+      &:nth-child(n+4) {
+        margin-top: 2rem;
+      }
+    }
+  }
+  @include mixins.mq-down {
+    width: 48.5%;
+    &:nth-child(n+3) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+.articleList__anc {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &:hover {
+    .articleList__img {
+      transform: scale(1.05);
+    }
+    .articleList__title {
+      text-decoration: underline;
+    }
+  }
+}
+.articleList__head {
+  position: relative;
+  overflow: hidden;
+  @include mixins.mq-up {
+    height: clamp(12rem,calc((150 / 1400) * 100vw),15rem);
+  }
+  @include mixins.mq-down {
+    height: 12rem;
+  }
+}
+.articleList__img {
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all .3s;
+}
+.articleList__category {
+  position: absolute;
+  bottom: .8rem;
+  left: .8rem;
+}
+.articleList__body {
+  display: flex;
+  flex-direction: column;
+  background: variable.$colorWhite;
+  @include mixins.mq-up {
+    padding: 1.2rem 1.5rem 2rem;
+    height: clamp(calc(100% - 12rem),calc(100% - ((150 / 1400) * 100vw)),calc(100% - 15rem));
+  }
+  @include mixins.mq-down {
+    padding: 1rem 1rem 1.5rem;
+  }
+}
+.articleList__date {
+  margin-top: 1.4rem;
+  @include mixins.mq-up {
+    font-size: 1.6rem;
+  }
+  @include mixins.mq-down {
+    font-size: 1.5rem;
+  }
+}
+.articleList__title {
+  line-height: 1.8;
+  font-weight: bold;
+  @include mixins.mq-up {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  @include mixins.mq-down {
+    margin-bottom: 1rem;
+  }
+}
+.articleList__features {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  margin-left: -.6rem;
+}
+.articleList__feature {
+  @include mixins.feature;
+}

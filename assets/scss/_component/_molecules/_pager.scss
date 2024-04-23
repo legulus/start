@@ -1,0 +1,63 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  @include mixins.mq-up {
+    margin-top: variable.$space-md;
+  }
+  @include mixins.mq-down {
+    margin-top: 4rem;
+  }
+}
+.pager__item {
+  margin: 0 .3em;
+  font-size: 1.3rem;
+  &.-prev {
+  }
+  &.-next {
+  }
+}
+.pager__anc,
+.pager__both {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pager__anc {
+  width: 3.6rem;
+  height: 3.6rem;
+  background: variable.$colorWhite;
+  font-family: variable.$fontEn;
+  border-radius: 50%;
+  @include mixins.mq-up {
+    &:hover {
+      background: variable.$colorGreen;
+      color: variable.$colorWhite;
+    }
+  }
+  &.is-current {
+    background: variable.$colorGreen;
+    color: variable.$colorWhite;
+    pointer-events: none;
+  }
+}
+.pager__both {
+  display: flex;
+  align-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 1px solid variable.$colorLineGray;
+  color: variable.$colorGreen;
+  border-radius: 50%;
+  font-size: .7em;
+  @include mixins.mq-up {
+    &:hover {
+      border-color: variable.$colorGreen;
+      background: variable.$colorGreen;
+      color: variable.$colorWhite;
+    }
+  }
+}

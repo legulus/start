@@ -1,0 +1,60 @@
+@use "_mixins.scss";
+@use "_variable.scss";
+.visible {
+  @include mixins.mq-up(md) {
+    &-md,&-sm {
+      display: none;
+    }
+    &-lg {
+      display: inherit;
+    }
+  }
+  @include mixins.mq-between {
+    &-lg,&-sm {
+      display: none;
+    }
+    &-md {
+      display: inherit;
+    }
+  }
+  @include mixins.mq-down {
+    &-lg,&-md {
+      display: none;
+    }
+    &-sm {
+      display: inherit;
+    }
+  }
+}
+
+.zoom {
+  @include mixins.mq-up {
+    &:hover {
+      .zoomContent {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.zoomRel {
+  position: relative;
+  overflow: hidden;
+}
+.zoomContent {
+  transition: all .3s;
+}
+
+.bg-gray {
+  background: variable.$colorBgGray;
+}
+.bg-blue {
+  background: variable.$colorBgGreen;
+}
+
+.accordion-content {
+  display: none;
+}
+
+// #wpadminbar {
+//   display: none;
+// }

@@ -1,0 +1,52 @@
+// --- Font ---
+$baseFont: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN", YuGothic, "Yu Gothic", sans-serif !default;
+$fontIcon: "legulus" !important;
+$fontEn: 'Lato', sans-serif;
+
+// --- LegulusGreen ---
+$colorBlack: #333;
+$colorGray: #888888;
+$colorBgGray: #CCCCCC;
+$colorLineGray: #DEDEDE;
+$colorWhite: #FFF;
+$colorRed: #CE2C2C;
+$colorGreen: #2d5a00;
+$colorBgGreen: #e7f5eb;
+$colorYellow: #FFF30B;
+
+// --- Break Point ---
+$breakpoint-up: (
+  "xs": "screen and (min-width: 540px)",
+  "sm": "screen and (min-width: 750px)",
+  "md": "screen and (min-width: 1024px)",
+  "lg": "screen and (min-width: 1200px)",
+  "xl": "screen and (min-width: 1441px)",
+) !default;
+
+$breakpoint-down: (
+  "xs": "screen and (max-width: 539px)",
+  "sm": "screen and (max-width: 749px)",
+  "md": "screen and (max-width: 1023px)",
+  "lg": "screen and (max-width: 1199px)",
+  "xl": "screen and (max-width: 1440px)",
+) !default;
+
+$breakpoint-between: (
+  "sm-md": "screen and (min-width: 750px) and (max-width: 1023px)",
+  "sm-lg": "screen and (min-width: 750px) and (max-width: 1199px)",
+  "sm-xl": "screen and (min-width: 750px) and (max-width: 1440px)",
+  "md-lg": "screen and (min-width: 1024px) and (max-width: 1199px)",
+  "md-xl": "screen and (min-width: 1024px) and (max-width: 1440px)",
+) !default;
+
+// --- Width ---
+$pcDesignWidth: 1400px;
+$spDesignWidth: 750px;
+
+// --- space ---
+$space-lg: 8rem;
+$space-lg-sm: 4rem;
+$space-md: 6rem;
+$space-md-sm: 3rem;
+$space-sm: 3rem;
+$space-xs: 2rem;

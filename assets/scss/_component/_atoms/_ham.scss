@@ -1,0 +1,79 @@
+@use "../../_foundation/_variable.scss";
+@use "../../_foundation/_mixins.scss";
+.ham {
+  @include mixins.mq-down(lg) {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    transition: all .3s;
+  }
+  @include mixins.mq-between(sm-lg) {
+    width: 8rem;
+    height: 8rem;
+    left: 0;
+    // .is-active & {
+    //   left: -40rem;
+    // }
+  }
+  @include mixins.mq-down {
+    width: 5rem;
+    height: 5rem;
+    right: 0;
+    // .is-active & {
+    //   right: calc(100% - 6rem);
+    // }
+  }
+}
+.ham__item {
+  @include mixins.mq-down(lg) {
+    position: absolute;
+    height: 2px;
+    background: variable.$colorBlack;
+    transition: all .35s ease;
+  }
+  @include mixins.mq-between(sm-lg) {
+    left: 2.5rem;
+    width: 3rem;
+    &:nth-child(1) {
+      top: 3rem;
+    }
+    &:nth-child(2) {
+      top: 3.9rem;
+    }
+    &:nth-child(3) {
+      top: 5rem;
+    }
+  }
+  @include mixins.mq-down {
+    left: 1.5rem;
+    width: 2rem;
+    &:nth-child(1) {
+      top: 1.8rem;
+    }
+    &:nth-child(2) {
+      top: 2.5rem;
+    }
+    &:nth-child(3) {
+      top: 3.2rem;
+    }
+  }
+}
+.is-active {
+  .ham__item {
+    @include mixins.mq-between(sm-lg) {
+      top: 4rem;
+    }
+    @include mixins.mq-down {
+      top: 2.5rem;
+    }
+    &:nth-child(1) {
+      transform: rotate(225deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-225deg);
+    }
+  }
+}

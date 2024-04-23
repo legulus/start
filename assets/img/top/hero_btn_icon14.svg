@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="30" viewBox="0 0 25 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_25147" data-name="長方形 25147" width="25" height="30" transform="translate(958 814)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="長方形_24266" data-name="長方形 24266" width="12.223" height="21.748" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="パス_46411" data-name="パス 46411" d="M10.677,259.041,6.111,262.1l-4.566-3.055A1.024,1.024,0,0,0,0,259.82v11.071a2.728,2.728,0,0,0,1.494,2.373l3.994,2.745a1.324,1.324,0,0,0,1.246,0l3.994-2.745a2.728,2.728,0,0,0,1.494-2.373V259.82a.971.971,0,0,0-1.02-.912,1.1,1.1,0,0,0-.526.133" transform="translate(0 -258.908)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="マスクグループ_20198" data-name="マスクグループ 20198" transform="translate(-958 -814)" clip-path="url(#clip-path)">
+    <g id="グループ_20189" data-name="グループ 20189" transform="translate(964 818.256)">
+      <g id="グループ_16387" data-name="グループ 16387" transform="translate(0 -0.003)">
+        <g id="グループ_16386" data-name="グループ 16386" transform="translate(0 0)" clip-path="url(#clip-path-2)">
+          <path id="パス_46409" data-name="パス 46409" d="M0,259.827v11.166a2.753,2.753,0,0,0,1.494,2.393l3.994,2.769a1.314,1.314,0,0,0,1.246,0l3.994-2.769a2.753,2.753,0,0,0,1.494-2.393V259.827a1.023,1.023,0,0,0-1.546-.786l-4.566,3.081-4.566-3.081A1.023,1.023,0,0,0,0,259.827" transform="translate(0 -255.663)" fill="#fff30b"/>
+        </g>
+      </g>
+      <g id="グループ_16389" data-name="グループ 16389" transform="translate(0 3.352)">
+        <g id="グループ_16388" data-name="グループ 16388" clip-path="url(#clip-path-3)">
+          <path id="パス_46410" data-name="パス 46410" d="M440.076,21.56l6.111-.579V0l-6.111.579Z" transform="translate(-433.965 -3.214)" fill="#00a88c"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,232 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+.ft {
+  position: relative;
+  @include mq-down {
+    padding: 3rem 0;
+  }
+}
+.ft__inner {
+  max-width: 1200px;
+  @include mq-up(lg) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+.ft__head {
+  @include mq-up {
+    padding: 4.5rem 0 7rem;
+  }
+}
+.ft__area {
+  @include mq-up(lg) {
+    width: calc((325 / 1200) * 100%);
+  }
+  @include mq-down(lg) {
+    margin-top: 3rem;
+  }
+}
+.ft__logo {
+  @include mq-up(lg) {
+    margin-left: -2.5rem;
+  }
+  @include mq-down(lg) {
+    text-align: center;
+  }
+}
+.ft__logo__link {
+  display: inline-block;
+  width: 11rem;
+  @include mq-up {
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+.ft__address {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  @include mq-up(lg) {
+    line-height: 2;
+  }
+  @include mq-down(lg) {
+    line-height: 1.8;
+    text-align: center;
+  }
+}
+.ft__address__link {
+  @include mq-up {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.ft__content {
+  @include mq-up(lg) {
+    display: flex;
+    justify-content: space-between;
+  }
+  &:not(:first-of-type) {
+    @include mq-up(lg) {
+      margin-top: 3rem;
+    }
+  }
+}
+.ftSitemap {
+  @include mq-up(lg) {
+    margin-top: 2.5rem;
+    margin-left: calc((35 / 1200) * 100%);
+    width: calc((840 / 1200) * 100%);
+  }
+}
+.ftSitemap__list {
+  display: flex;
+  flex-wrap: wrap;
+  @include mq-up {
+    gap: 2rem calc((20 / 840) * 100%);
+  }
+  @include mq-down {
+    justify-content: space-between;
+  }
+}
+.ftSitemap__item {
+  @include mq-up {
+    font-size: 1.5rem;
+  }
+  @include mq-down {
+    width: 48.5%;
+  }
+  &:nth-of-type(n+3) {
+    @include mq-down {
+      margin-top: 1.5rem;
+    }
+  }
+}
+.ftSitemap__anc {
+  display: block;
+  font-weight: bold;
+  @include mq-up {
+    font-size: 1.3rem;
+    &:not(.-nolink) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @include mq-down {
+    padding: 1rem 1.5rem;
+  }
+  & + * {
+    @include mq-up {
+      margin-top: 1.4rem;
+    }
+  }
+}
+.ftSitemapSub__item {
+  &+& {
+    @include mq-up {
+      margin-top: 1.2rem;
+    }
+  }
+}
+.ftSitemapSub__anc {
+  position: relative;
+  display: block;
+  color: var.$colorGray;
+  @include mq-up {
+    padding-left: 1em;
+    font-size: 1.2rem;
+    &:hover {
+      opacity: .7;
+    }
+  }
+  @include mq-down {
+    padding: .5rem 1.5rem;
+    font-size: 1.3rem;
+  }
+  &::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var.$colorGreen;
+    line-height: 1;
+    @include mq-up {
+      top: .15em;
+    }
+    @include mq-down {
+      top: .5em;
+    }
+  }
+}
+.ft__body {
+  @include mq-down {
+    margin-top: var.$space-lg-sm;
+  }
+}
+.ft__body__inner {
+  @include mq-up {
+    border-color: var.$colorLineGray;
+    border-style: solid;
+    border-width: 1px 0;
+    padding: 1.1rem 0 1.4rem;
+  }
+}
+.ft__body__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: -.5rem;
+  @include mq-down {
+    justify-content: center;
+  }
+}
+.ft__foot {
+  border-top: 1px solid var.$colorLineGray;
+  color: var.$colorGray;
+  font-size: 1.2rem;
+  @include mq-up {
+    padding: 3rem 0;
+  }
+  @include mq-down {
+    margin-top: 3rem;
+    padding-top: 3rem;
+  }
+}
+.ft__foot__inner {
+  @include mq-up {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.ft__foot__list {
+  display: flex;
+  @include mq-down {
+    justify-content: center;
+  }
+}
+.ft__foot__item {
+  &:not(:last-of-type) {
+    margin-right: 2.5rem;
+  }
+}
+.ft__foot__link {
+  display: block;
+  @include mq-up {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.ft__copy {
+  @include mq-up {
+    font-size: 1.2rem;
+  }
+  @include mq-down {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}

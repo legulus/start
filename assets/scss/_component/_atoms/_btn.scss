@@ -1,0 +1,130 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+.btn {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .6rem;
+  padding: .8em 3em;
+  width: 27.5rem;
+  min-width: 27.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all .3s;
+  @include mq-up {
+    min-height: 5.5rem;
+    font-size: clamp(1.2rem,calc(16/1400)*100vw,1.6rem);
+  }
+  @include mq-down {
+    height: 6.5rem;
+    margin: 0 auto;
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    font-family: var.$fontIcon;
+    font-weight: normal;
+    transform: translateY(-50%);
+  }
+  &.-arrow {
+    &::after {
+      content: "\e902";
+      right: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var.$colorBgGray;
+      font-size: 1.1em;
+    }
+  }
+  &.-blank {
+    &::after {
+      content: "\e90e";
+      right: 1em;
+      color: var.$colorBgGray;
+      font-size: 1.3em;
+    }
+  }
+  &.-pdf {
+    &::after {
+      content: "\e908";
+      right: 0.8em;
+      font-size: 1.3em;
+    }
+  }
+  &.-white {
+    color: var.$colorBlack;
+    border: 1px solid var.$colorWhite;
+    background: var.$colorWhite;
+    @include mq-up {
+      &:hover {
+        color: var.$colorWhite;
+        background: var.$colorBlack;
+      }
+    }
+  }
+  &.-black {
+    color: var.$colorWhite;
+    border: 1px solid var.$colorBlack;
+    background: var.$colorBlack;
+    &::after {
+      color: var.$colorWhite;
+    }
+    @include mq-up {
+      &:hover {
+        background: var.$colorWhite;
+        color: var.$colorBlack;
+        &::after {
+          color: var.$colorBlack;
+        }
+      }
+    }
+  }
+  &.-line {
+    border: 1px solid var.$colorLineGray;
+    background: var.$colorWhite;
+    @include mq-up {
+      &:hover {
+        color: var.$colorWhite;
+        background: var.$colorBlack;
+        &::after {
+          color: var.$colorWhite;
+        }
+      }
+    }
+  }
+  &.-blue {
+    color: var.$colorWhite;
+    border: 1px solid var.$colorGreen;
+    background: var.$colorGreen;
+    &::after {
+      color: var.$colorWhite;
+    }
+    @include mq-up {
+      &:hover {
+        background: var.$colorWhite;
+        color: var.$colorGreen;
+        &::after {
+          color: var.$colorGreen;
+        }
+      }
+    }
+  }
+  &.-yellow {
+    color: var.$colorBlack;
+    border: 1px solid #DBD101;
+    background: var.$colorYellow;
+    @include mq-up {
+      &:hover {
+        color: #DBD101;
+        background: var.$colorWhite;
+        &::after {
+          color: #DBD101;
+        }
+      }
+    }
+  }
+}

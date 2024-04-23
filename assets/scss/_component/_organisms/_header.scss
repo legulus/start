@@ -1,0 +1,515 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+.hd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all .3s;
+  background: var.$colorWhite;
+  box-shadow: 0 0 1rem var.$colorLineGray;
+  @include mq-up(lg) {
+    height: 12rem;
+    transition: all .3s;
+    .is-view & {
+      height: 8rem;
+    }
+  }
+  @include mq-down(lg) {
+    height: 6rem;
+    &::before {
+      content: '';
+      position: fixed;
+      top: 6rem;
+      left: 0;
+      display: block;
+      width: 100vw;
+      height: calc(100vh - 6rem);
+      background: var.$colorBlack;
+      opacity: .1;
+      visibility: hidden;
+      transition: all .3s;
+      opacity: 0;
+      .is-active & {
+        visibility: visible;
+        opacity: .4;
+      }
+    }
+  }
+}
+.hd__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  @include mq-up(lg) {
+    padding: 2rem 0 2rem 2rem;
+  }
+  @include mq-down(lg) {
+    position: relative;
+    padding: 1rem 1.5rem;
+  }
+  .is-active & {
+    @include mq-down {
+      background: var.$colorWhite;
+    }
+  }
+}
+.hd__head {
+  @include mq-up(lg) {
+    width: 11rem;
+  }
+  @include mq-down(lg) {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 5rem;
+  }
+}
+.hd__body {
+  @include mq-up(lg) {
+    position: relative;
+    z-index: 100;
+    width: calc(100% - 11rem - 6rem);
+    margin-left: 6rem;
+  }
+  @include mq-down(lg) {
+    position: absolute;
+    top: 6rem;
+    z-index: 10;
+    height: calc(100vh - 6rem);
+    background: var.$colorWhite;
+    padding: 0 2rem 8rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    overflow-y: scroll;
+    .is-active & {
+      visibility: visible;
+      opacity: 1;
+      right: 0;
+    }
+  }
+  @include mq-between(sm-lg) {
+    right: -40rem;
+    width: 40rem;
+  }
+  @include mq-down {
+    right: -80%;
+    width: 80%;
+  }
+}
+.hdLogo {
+  transition: all .3s;
+  @include mq-up(lg) {
+    width: 11rem;
+    .is-view & {
+      width: 8rem;
+    }
+  }
+  @include mq-down(lg) {
+    width: 6rem;
+  }
+}
+.hdLogo__item {
+  transition: all .3s;
+  @include mq-up(lg) {
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+.gnav {
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  @include mq-down(lg) {
+  }
+}
+.gnav__head {
+  @include mq-up(lg) {
+    display: flex;
+    flex-direction: column;
+    margin-right: 3rem;
+    width: calc(100% - 24rem - 3rem);
+  }
+  @include mq-down(lg) {
+  }
+}
+.gnav__foot {
+  @include mq-up(lg) {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var.$colorGray;
+  }
+  @include mq-down(lg) {
+    background: var.$colorBgGray;
+    padding: 4rem 1.5rem;
+  }
+}
+.gnav__list {
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    order: 2;
+    width: 100%;
+    max-width: 75rem;
+    margin-left: auto;
+  }
+}
+.gnav__item {
+  @include mq-up(lg) {
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -6.3rem;
+      left: -10rem;
+      width: 100rem;
+      height: 6.5rem;
+      visibility: hidden;
+    }
+    &:hover {
+      &::after {
+        visibility: visible;
+      }
+    }
+    &:not(:first-of-type) {
+      margin-left: 3.6rem;
+    }
+    &.is-show {
+      &::after {
+        visibility: visible;
+      }
+    }
+  }
+  @include mq-down(lg) {
+    border-top: 1px solid var.$colorLineGray;
+  }
+}
+.gnav__anc {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  @include mq-up(lg) {
+    position: relative;
+    z-index: 10;
+    justify-content: center;
+    min-height: calc(1.2em*2);
+    font-size: 1.5rem;
+    text-align: center;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 2px;
+      background: var.$colorBlack;
+      opacity: 0;
+    }
+    .is-view & {
+      &::before {
+        bottom: -.5em;
+      }
+    }
+    .is-current & {
+      &::before {
+        opacity: 1;
+      }
+    }
+    .is-show & {
+      color: var.$colorGreen;
+    }
+    .is-hover & {
+      &:hover {
+        color: var.$colorGreen;
+      }
+    }
+    body:not(.is-hover) & {
+      &:hover {
+        color: var.$colorGray;
+      }
+    }
+  }
+  @include mq-down(lg) {
+    justify-content: space-between;
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    &::after {
+      font-family: var.$fontIcon;
+    }
+    &.-tab {
+      &::after {
+        content: '\e90c';
+      }
+      &.is-show {
+        &::after {
+          content: '\e90d';
+        }
+      }
+    }
+    &:not(.-tab) {
+      &::after {
+        content: '\e902';
+      }
+    }
+  }
+}
+.gnavChild {
+  @include mq-up(lg) {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    top: 12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    transition: all .3s;
+    background: var.$colorWhite;
+    .is-show & {
+      visibility: visible;
+      opacity: 1;
+    }
+    .is-view & {
+      top: 8rem;
+    }
+  }
+  @include mq-down(lg) {
+    display: none;
+  }
+}
+.gnavChild__list {
+  background: var.$colorGreen;
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+  }
+}
+.gnavChild__item {
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    margin: 0 1em;
+    &.-top {
+      display: none;
+    }
+  }
+  @include mq-down(lg) {
+    &+& {
+      border-top: 1px dashed var.$colorWhite;
+    }
+  }
+}
+.gnavChild__anc {
+  color: var.$colorWhite;
+  @include mq-up(lg) {
+    font-size: clamp(1rem,calc(14/1300)*100vw,1.4rem);
+    &:hover {
+      color: var.$colorLineGray;
+    }
+  }
+  @include mq-down(lg) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    width: 100%;
+    &::before {
+      content: '-';
+      margin-right: 1em;
+    }
+    &::after {
+      content: '\e902';
+      position: absolute;
+      top: 50%;
+      right: 1.5rem;
+      transform: translateY(-50%);
+      font-family: var.$fontIcon;
+    }
+  }
+}
+.gnavSub {
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    transition: all .3s;
+    .is-view & {
+      margin-bottom: 1rem;
+    }
+  }
+}
+.gnavSub__list {
+  @include mq-up(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+.gnavSub__item {
+  @include mq-up(lg) {
+    &:not(:first-of-type) {
+      margin-left: 2.8rem;
+    }
+  }
+  @include mq-down(lg) {
+    border-top: 1px solid var.$colorLineGray;
+  }
+  &:last-of-type {
+    @include mq-down(lg) {
+      border-bottom: 1px solid var.$colorLineGray;
+    }
+  }
+}
+.gnavSub__anc {
+  @include mq-up(lg) {
+    font-size: 1.3rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @include mq-down(lg) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1.5rem 1rem;
+    font-weight: bold;
+    &::after {
+      content: '\e902';
+      font-family: var.$fontIcon;
+    }
+  }
+}
+.gnavSub__sns {
+  display: flex;
+  align-items: center;
+  @include mq-up(lg) {
+    justify-content: flex-end;
+    margin-left: 2.8rem;
+    gap: 1.6rem
+  }
+  @include mq-down(lg) {
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1.2rem
+  }
+}
+.gnavSub__snsLink {
+  display: block;
+  @include mq-up(lg) {
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+.gnavCv {
+  display: flex;
+  @include mq-up(lg) {
+    position: relative;
+    top: 0;
+    width: 24rem;
+    transition: all .3s;
+    .is-view & {
+      top: 1rem;
+    }
+  }
+  @include mq-down(lg) {
+    margin-top: 2rem;
+  }
+}
+.gnavCv__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  font-weight: bold;
+  overflow: hidden;
+  @include mq-up(lg) {
+    height: 12rem;
+    font-size: 1.3rem;
+    .is-view & {
+      height: 11rem;
+    }
+  }
+  @include mq-down(lg) {
+    padding: 1.5rem;
+  }
+  &::before {
+    font-family: var.$fontIcon;
+    font-size: 3rem;
+    transition: all 0s;
+    @include mq-up(lg) {
+      margin-bottom: 1.2rem;
+    }
+    @include mq-down(lg) {
+      margin-bottom: .5rem;
+    }
+  }
+  &.-contact {
+    color: var.$colorWhite;
+    background: var.$colorBlack;
+    &::before {
+      content: "\e905";
+    }
+    @include mq-up(lg) {
+      &:hover {
+        background: var.$colorGreen;
+      }
+    }
+  }
+  &.-request {
+    background: var.$colorLineGray;
+    &::before {
+      content: "\e904";
+    }
+    @include mq-up(lg) {
+      &:hover {
+        background: var.$colorWhite;
+      }
+    }
+  }
+  .label {
+    position: absolute;
+    z-index: 1;
+    top: -2.5rem;
+    right: -4.5rem;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: .3rem;
+    width: 10rem;
+    height: 6rem;
+    color: var.$colorWhite;
+    background: var.$colorRed;
+    @include mq-up(lg) {
+      transition: all .3s;
+      .is-view & {
+        top: -2rem;
+      }
+    }
+    @include mq-down(lg) {
+	
+    }
+  }
+}

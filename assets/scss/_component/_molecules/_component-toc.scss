@@ -1,0 +1,82 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+
+.component-toc {
+  counter-reset: mokuji;
+  border: 1px solid var.$colorBgGray;
+  background: var.$colorBgGreen;
+  @include mq-up {
+    margin: 3rem 0 5rem;
+    padding: 2.4rem 2.2rem;
+  }
+  @include mq-down {
+    margin: 3rem 0;
+    padding: 2rem 1.5rem;
+  }
+}
+.toc__term {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  @include mq-up {
+    font-size: 1.2rem;
+  }
+}
+.toc__term__main {
+  display: flex;
+  align-items: center;
+  margin-right: .8em;
+}
+.toc__btn {
+  cursor: pointer;
+  @include mq-up {
+    transition: all .3s;
+    &:hover {
+      .text {
+        color: var.$colorGreen;
+      }
+    }
+  }
+  .text {
+    position: relative;
+    color: #008EDE;
+    transition: all .3s;
+  }
+}
+.toc__desc {
+  @include mq-up {
+    margin-top: 2rem;
+  }
+  @include mq-down {
+    margin-top: 1.5rem;
+  }
+}
+.tocList__item {
+  @include mq-up {
+    font-size: 1.3rem;
+  }
+  &+& {
+    margin-top: .5rem;
+  }
+}
+.tocList__anc {
+  display: flex;
+  color: var.$colorGreen;
+  @include mq-up {
+    &:hover {
+      .text {
+        text-decoration: underline;
+      }
+    }
+  }
+  &::before {
+    counter-increment: mokuji;
+    content: counter(mokuji);
+    margin-right: 0.8em;
+    line-height: 1.7;
+    color: var.$colorGreen;
+    font-family: var.$fontIcon;
+  }
+}

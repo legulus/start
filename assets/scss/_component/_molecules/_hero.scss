@@ -1,0 +1,89 @@
+@use "../../_foundation/_variable.scss" as var;
+@use "../../_foundation/_mixins.scss" as *;
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var.$colorGray;
+  color: var.$colorWhite;
+  @include mq-up {
+    min-height: 28rem;
+    padding: 4rem;
+  }
+  @include mq-between {
+    min-height: 22rem;
+    padding: 2rem 4rem;
+  }
+  @include mq-down {
+    min-height: 17rem;
+    padding: 1.5rem;
+  }
+  &.-blue {
+    color: var.$colorWhite;
+    background: var.$colorGreen;
+  }
+}
+.hero__en {
+  font-family: var.$fontEn;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  @include mq-up {
+    font-size: 4.8rem;
+  }
+  @include mq-between {
+    font-size: 4rem;
+  }
+  @include mq-down {
+    font-size: 3rem;
+  }
+}
+.hero__heading {
+  margin-top: 0.5em;
+  @include mq-up {
+    font-size: 1.8rem;
+  }
+  @include mq-down {
+    font-size: 1.4rem;
+  }
+}
+.hero__lead {
+  @include mq-up {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+  }
+  @include mq-down {
+    margin-top: 1.5rem;
+  }
+}
+.hero__icon {
+  @include mq-up {
+    margin: 0 auto 1.5rem;
+    width: 2.8rem;
+  }
+  @include mq-down {
+    margin: 0 auto 1rem;
+    width: 2.2rem;
+  }
+}
+.hero__ja {
+  font-weight: bold;
+  @include mq-up {
+    font-size: 1.8rem;
+  }
+  @include mq-down {
+    font-size: 1.4rem;
+  }
+}
+.hero__heading__ja {
+  @include mq-up {
+    margin-top: 0.5rem;
+    font-size: 4rem;
+  }
+  @include mq-down {
+    margin-top: 1rem;
+    font-size: 2.2rem;
+  }
+}
